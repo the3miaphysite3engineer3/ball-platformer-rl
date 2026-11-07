@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dq8fk2iappseu"]
+
+[ext_resource type="PackedScene" uid="uid://bn1iwoh4u5t0c" path="res://scenes/celestial_lions_-_checkpoint.glb" id="1_yyywg"]
+
+[node name="checkpoint" unique_id=827011535 instance=ExtResource("1_yyywg")]
+
+[node name="Skeleton3D" parent="Sketchfab_model/ab84fffbb6794dbea1e4f623636039d5_fbx/Object_2/RootNode/Object_4" parent_id_path=PackedInt32Array(406087894) index="0" unique_id=257661412]
+bones/2/rotation = Quaternion(0, -0.02018951, 0, 0.9997962)
+bones/3/rotation = Quaternion(0, -0.02018951, 0, 0.9997962)

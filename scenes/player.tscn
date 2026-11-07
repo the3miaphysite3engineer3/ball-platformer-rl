@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dvhctk2bn16c4"]
+
+[ext_resource type="Script" uid="uid://d08fkuioh4l48" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://d0c2cmwe0s8wk" path="res://Sprites/Football_Seamless_Pattern_1.jpg" id="2_g2els"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73xqn"]
+albedo_texture = ExtResource("2_g2els")
+
+[sub_resource type="SphereMesh" id="SphereMesh_l23iu"]
+material = SubResource("StandardMaterial3D_73xqn")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l23iu"]
+
+[node name="player" type="CharacterBody3D" unique_id=753176732 groups=["player"]]
+collision_mask = 15
+script = ExtResource("1_g2els")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=69209694]
+mesh = SubResource("SphereMesh_l23iu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=250459971]
+shape = SubResource("SphereShape3D_l23iu")
+
+[node name="camera_controller" type="SpringArm3D" parent="." unique_id=2133555722]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0.22297752, 0)
+spring_length = 4.0
+margin = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="camera_controller" unique_id=699839680]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)

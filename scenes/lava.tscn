@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3uvgr2jvb35c"]
+
+[ext_resource type="Shader" uid="uid://qfimibybmpqf" path="res://scripts/lava.gdshader" id="1_a5s42"]
+[ext_resource type="Script" uid="uid://bth45vdg4su52" path="res://scripts/lava.gd" id="1_dw3wf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw3wf"]
+render_priority = 0
+shader = ExtResource("1_a5s42")
+shader_parameter/a_color = Color(0, 0, 0, 1)
+shader_parameter/b_color = Color(0.275, 0.031, 0.035, 1)
+shader_parameter/c_color = Color(0.906, 0, 0.043, 1)
+shader_parameter/d_color = Color(0.996, 0.604, 0, 1)
+shader_parameter/a_roughness = 0.5
+shader_parameter/b_roughness = 1.0
+shader_parameter/c_roughness = 0.25
+shader_parameter/d_roughness = 0.0
+shader_parameter/speed = 0.25
+shader_parameter/scale = 5.0
+shader_parameter/sharpness = 8.0
+shader_parameter/bump_strength = 0.15
+shader_parameter/crust_emission = 0.0
+shader_parameter/emission_intensity = 10.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_73xqn"]
+material = SubResource("ShaderMaterial_dw3wf")
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_73xqn"]
+size = Vector3(100, 1, 100)
+
+[node name="lava" type="Area3D" unique_id=732852518 groups=["player"]]
+collision_layer = 0
+script = ExtResource("1_dw3wf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1153677261]
+mesh = SubResource("BoxMesh_73xqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=790366568]
+shape = SubResource("BoxShape3D_73xqn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

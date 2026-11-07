@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://d2x87h3rvsm7w"]
+
+[ext_resource type="Texture2D" uid="uid://5wr0tla0f75x" path="res://Object/GLB format/Textures/colormap.png" id="1_axrur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm30c"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_axrur")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_psije"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.9, 1),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAwAEAAEAAgABAAQABQADAAAABAADAAUAAgAGAAAAAAAGAAUABQAGAAIABAAHAAIAAgAHAAUABQAHAAQA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAAAAAAAAA//8AAAAA//8AAP//AAD//wAAAAAAAP///////wAAAAD/////AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kxrk3"]
+resource_name = "dirt_dirt"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.9, 1),
+"attribute_data": PackedByteArray("/3eY+f93mPn/d2XG/3dlxv93Zcb/d2XG/3eY+f93mPn/d2XG/3dlxv93Zcb/d2XG/3dlxv93mPn/d5j5/3dlxv93mPn/d5j5/3eY+f93mPn/d2XG/3eY+f93mPn/d2XG"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_xm30c"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAAAAD/vwAA//8AAP+/AAD//////7//////////v/////8AAP+///8AAAAA/7///wAA////vwAA//8AAP///////wAA/////////////wAA////////////////AID//wAA//8AgAAAAAD//wCAAAD/////AID//wAA////v///AAAAAP+/AAAAAAAA/78AAAAA////vwAA//8AAP//AAAAAAAA/////wAAAAD///////8AAP///3////9/////f////3////9/AAD/fwAA/38AAP9/AAD/f/+//3//v/9//7//f/+//3////9/////f////3///wAA/38AAP9/AAD/fwAA/3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_psije")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73xqn"]
+albedo_color = Color(0.45731276, 0.2904302, 0.11698861, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r8fi5"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0.9, -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.9, 0.5, 0.5, 0.9, -0.5, 0.5, 0, 0.5, 0.5, 0.9, 0.5)
+
+[node name="dirt" type="StaticBody3D" unique_id=1040279735]
+collision_layer = 4
+
+[node name="dirt" type="MeshInstance3D" parent="." unique_id=1779703002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1136775, 0, 0.28682518)
+mesh = SubResource("ArrayMesh_kxrk3")
+surface_material_override/0 = SubResource("StandardMaterial3D_73xqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1997005431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1136775, 0, 0.28682518)
+shape = SubResource("ConvexPolygonShape3D_r8fi5")

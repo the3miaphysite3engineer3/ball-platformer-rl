@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# RL training artifacts we don't want in the repo
+training/envs/
+__pycache__/
+*.py[cod]
+training/runs/

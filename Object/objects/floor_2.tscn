@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://druwtd4rng288"]
+
+[ext_resource type="Texture2D" uid="uid://5wr0tla0f75x" path="res://Object/GLB format/Textures/colormap.png" id="1_gyxng"]
+[ext_resource type="Material" uid="uid://b5bca2rsae8xr" path="res://Object/objects/new_standard_material_3d.tres" id="2_27woe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlmpc"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_gyxng")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_egpby"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eog4m"]
+resource_name = "floor_floor"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray(255, 215, 152, 249, 255, 215, 152, 249, 255, 215, 152, 249, 255, 215, 152, 249),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_dlmpc"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_egpby")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_27woe"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5)
+
+[node name="floor2" type="StaticBody3D" unique_id=576863371]
+collision_layer = 4
+
+[node name="floor" type="MeshInstance3D" parent="." unique_id=1487221278]
+mesh = SubResource("ArrayMesh_eog4m")
+surface_material_override/0 = ExtResource("2_27woe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1596613177]
+shape = SubResource("ConvexPolygonShape3D_27woe")
